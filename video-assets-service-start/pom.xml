@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.video.assets</groupId>
+        <artifactId>video-assets-service</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>video-assets-service-start</artifactId>
+    <name>video-assets-service-start</name>
+    <description>启动模块 - SpringBoot启动入口</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.video.assets</groupId>
+            <artifactId>video-assets-service-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.video.assets</groupId>
+            <artifactId>video-assets-service-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.video.assets</groupId>
+            <artifactId>video-assets-service-infrastructure</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

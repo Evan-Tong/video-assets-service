@@ -19,7 +19,6 @@ public class AssetVO {
     private String fileUrl;
     private Long fileSize;
     private String fileFormat;
-    private Integer duration;
     private String status;
     private String uploader;
     private String uploadedAt;

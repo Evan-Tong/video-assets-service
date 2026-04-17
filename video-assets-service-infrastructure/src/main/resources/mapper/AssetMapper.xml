@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.video.assets.infrastructure.mapper.AssetMapper">
+
+    <!-- 各上传人平均文件大小 -->
+    <select id="selectUploaderAvgSize" resultType="com.video.assets.domain.dto.UploaderAvgSizeDTO">
+        SELECT uploader, AVG(file_size) AS avg_size
+        FROM assets
+        WHERE status = 'approved'
+        GROUP BY uploader
+    </select>
+
+    <!-- 上传趋势分析（近30天） -->
+    <select id="selectUploadTrend" resultType="com.video.assets.domain.dto.UploadTrendDTO">
+        SELECT TO_CHAR(DATE(uploaded_at), 'YYYY-MM-DD') AS date, COUNT(*) AS count
+        FROM assets
+        WHERE uploaded_at >= NOW() - INTERVAL '30 days'
+        GROUP BY DATE(uploaded_at)
+        ORDER BY DATE(uploaded_at)
+    </select>
+
+</mapper>

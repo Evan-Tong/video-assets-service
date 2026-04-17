@@ -33,10 +33,6 @@ public class AssetCreateRequest {
     /** 文件格式 */
     private String fileFormat;
 
-    /** 视频时长（秒） */
-    @Positive(message = "视频时长必须为正数")
-    private Integer duration;
-
     /** 上传人 */
     @NotBlank(message = "上传人不能为空")
     private String uploader;
